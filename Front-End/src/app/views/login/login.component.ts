@@ -31,8 +31,7 @@ export class LoginComponent implements OnInit {
   loginData = { email: '', password: '' }
 
   ngOnInit() {
-
-    
+    sessionStorage.clear() //despopular session storage
   }
 
   @HostListener('window:keydown', ['$event'])

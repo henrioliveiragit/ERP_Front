@@ -1,7 +1,8 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { MaterialModule } from '../../modules/material.module';
 import { Router } from '@angular/router';
 import { AcessosService } from '../../services/acessos.service';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
@@ -14,6 +15,7 @@ export class SidebarComponent implements OnInit {
     private acessosService: AcessosService
   ) { }
 
+  @Input() smartphone: boolean = false;
   shouldRun: boolean = true
   menuFixed: any
   selecionado = ""
@@ -26,6 +28,8 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.validarLogged() //Validação
+    const sidebar = document.querySelector('mat-sidenav-container') as HTMLElement;
+    this.smartphone == true ? sidebar.style.display = 'block' : null
     this.menuFixed = sessionStorage.getItem("MenuFixed")
     this.menuFixed == '0' ? this.shouldRun = false : null
     this.objAcessos = this.acessosService.getAll()
@@ -77,6 +81,10 @@ export class SidebarComponent implements OnInit {
 
   irPara(selecionadoParam?: any) {
     this.router.navigate(['/' + selecionadoParam])
+  }
+
+  irParaAtual(){
+    this.router.navigate(['/' + this.selecionado])
   }
 
 }

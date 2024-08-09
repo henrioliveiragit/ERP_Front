@@ -56,7 +56,7 @@ section {
         color: whitesmoke;
     }
 
-    
+
 
 }
 
@@ -127,6 +127,7 @@ button:hover {
         text-overflow: ellipsis;
         width: 100%;
         gap: 1vw;
+
         h3 {
             font-size: 0.9vw;
             color: #183884;
@@ -149,7 +150,7 @@ button:hover {
                 font-size: 1.6vw;
             }
 
-            
+
 
         }
 
@@ -169,8 +170,13 @@ button:hover {
 .fixarBotao {
     background-color: rgba(255, 0, 0, 0.151) !important;
 }
+
 .fixarBotao:hover {
     background-color: rgba(255, 0, 0, 0.247) !important;
+}
+
+.recolherBotao {
+    display: none !important;
 }
 
 hr {
@@ -185,7 +191,7 @@ hr {
         justify-content: center;
         align-items: center;
         width: 100%;
-    
+
         button {
             width: 16vw;
             height: 3vw;
@@ -197,17 +203,18 @@ hr {
             background-color: transparent;
             color: #3a3a3a;
             border-radius: 1vw;
-            align-items:  center;
+            align-items: center;
             align-content: center;
+
             mat-icon {
                 position: absolute;
                 font-size: 1.2vw;
                 margin-top: 1.2vw;
                 align-items: center;
             }
-    
+
         }
-    
+
         button.selecionado {
             background-color: #183884;
             color: whitesmoke;
@@ -223,7 +230,7 @@ hr {
         justify-content: center;
         align-items: center;
         width: 100%;
-    
+
         button {
             width: 18vw;
             height: 5vw;
@@ -235,8 +242,9 @@ hr {
             background-color: transparent;
             color: #3a3a3a;
             border-radius: 1vw;
-            align-items:  center;
+            align-items: center;
             align-content: center;
+
             mat-icon {
                 position: absolute;
                 left: 1.3vw;
@@ -244,23 +252,25 @@ hr {
                 margin-top: 1.5vw;
                 align-items: center;
             }
-    
+
         }
-    
+
         button.selecionado {
             background-color: #183884;
             color: whitesmoke;
         }
     }
+
     .helper {
         display: none;
     }
+
     mat-sidenav-container {
         height: 100%;
         width: 20vw;
         background-color: whitesmoke;
         box-shadow: 0px 0px 1px;
-    
+
         h3 {
             color: #183884;
             align-self: flex-start;
@@ -278,7 +288,7 @@ hr {
         justify-content: center;
         align-items: center;
         width: 100%;
-    
+
         button {
             width: 22vw;
             height: 5vw;
@@ -290,31 +300,34 @@ hr {
             background-color: transparent;
             color: #3a3a3a;
             border-radius: 1vw;
-            align-items:  center;
+            align-items: center;
             align-content: center;
+
             mat-icon {
                 position: absolute;
                 left: 1vw;
                 font-size: 1.8vw;
                 margin-top: 2vw;
             }
-    
+
         }
-    
+
         button.selecionado {
             background-color: #183884;
             color: whitesmoke;
         }
     }
+
     .helper {
         display: none;
     }
+
     mat-sidenav-container {
         height: 100%;
         width: 24vw;
         background-color: whitesmoke;
         box-shadow: 0px 0px 1px;
-    
+
         h3 {
             color: #183884;
             align-self: flex-start;
@@ -324,8 +337,92 @@ hr {
     }
 }
 
+//Smartphones
 @media only screen and (max-width: 425px) {
-    mat-sidenav-container{
-        display: none;
+    .logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    
+        img {
+            width: 6vw;
+            height: 6vw;
+        }
+    
+        h1 {
+            font-size: 6vw;
+            color: #183884;
+        }
     }
+
+    mat-sidenav-container {
+        display: none;
+        position: absolute;
+        height: 100%;
+        width: 100vw;
+        background-color: whitesmoke;
+        box-shadow: 0px 0px 1px;
+        z-index: 2;
+
+        h3 {
+            color: #183884;
+            align-self: center;
+            font-size: 5vw;
+        }
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        button {
+            width: 50vw;
+            height: 10vw;
+            border-radius: 0vw;
+            box-shadow: none;
+            margin: 1%;
+            display: flex;
+            font-size: 3vw;
+            background-color: transparent;
+            color: #3a3a3a;
+            border-radius: 1vw;
+            align-items: center;
+            place-items: center;
+
+            mat-icon {
+                position: absolute;
+                left: 4vw;
+                font-size: 5vw;
+            }
+
+        }
+
+        .recolherBotao {
+            display: flex !important;
+            align-items: center;
+            place-items: center;
+            margin: 1%;
+            mat-icon {
+                position: absolute;
+                left: 4vw;
+                font-size: 5vw;
+            }
+        }
+
+        button.selecionado {
+            background-color: #183884;
+            color: whitesmoke;
+        }
+    }
+
+    .fixarBotao {
+        display: none !important;
+    }
+
+
+
+
 }

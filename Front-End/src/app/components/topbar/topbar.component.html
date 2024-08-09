@@ -2,11 +2,15 @@
     <div class="menuEsquerdo">
         <p>IT Advanced (Rio de Janeiro) - Matriz</p>
     </div>
+    <div class="menuEsquerdoMobile">
+        <mat-icon (click)="handleMenu()">dehaze</mat-icon>
+    </div>
 
-    <button style="width: 40%;" mat-stroked-button (click)="openDialog()" 
-    matTooltip="Você pode utilizar Alt + q">Pesquisar</button>
+    <button style="width: 40%;" mat-stroked-button (click)="openDialog()"
+        matTooltip="Você pode utilizar Alt + q">Pesquisar</button>
 
-    <div class="menuDireito" [matMenuTriggerFor]="menuConfig" style="display: flex; flex-direction: row; align-items: center; cursor: pointer;">
+    <div class="menuDireito" [matMenuTriggerFor]="menuConfig"
+        style="display: flex; flex-direction: row; align-items: center; cursor: pointer;">
         <p>{{NomeUsuario}}</p>
         <button mat-icon-button class="botaoIcone" aria-label="Example icon-button with heart icon">
             <mat-icon>face</mat-icon>
@@ -25,5 +29,10 @@
                 <span>Sair da Conta</span>
             </button>
         </mat-menu>
+
     </div>
 </mat-toolbar>
+@if(SideBar)
+{
+    <app-sidebar [smartphone]="true"></app-sidebar>
+}

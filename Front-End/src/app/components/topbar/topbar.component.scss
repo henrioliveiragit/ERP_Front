@@ -22,6 +22,10 @@ p{
     align-items: baseline;
 }
 
+.menuEsquerdoMobile{
+    display: none;
+}
+
 .menuDireito{
     .botaoIcone{
         background-color: #183884;
@@ -35,4 +39,38 @@ p{
     p{
         margin-right: 1vw;
     }
+}
+
+
+// Laptop
+@media only screen and (max-width: 1024px) {
+    
+}
+
+// Tablet
+@media only screen and (max-width: 768px) {
+    
+}
+
+//Small Tablets
+@media only screen and (max-width: 610px) {
+    
+}
+
+//Smartphones
+@media only screen and (max-width: 425px) {
+   .menuEsquerdo{
+    display: none;
+   }
+   .menuDireito{
+    p{
+        display: none;
+    }
+   }
+   .menuEsquerdoMobile{
+    display: block;
+   }
+   .smartphone{
+    display: block;
+   }
 }

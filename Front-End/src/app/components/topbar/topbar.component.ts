@@ -11,6 +11,7 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 export interface DialogData {
   animal: string;
   name: string;
@@ -18,7 +19,7 @@ export interface DialogData {
 @Component({
   selector: 'app-topbar',
   standalone: true,
-  imports: [MaterialModule],
+  imports: [MaterialModule, SidebarComponent],
   templateUrl: './topbar.component.html',
   styleUrl: './topbar.component.scss'
 })
@@ -26,6 +27,10 @@ export class TopbarComponent implements OnInit {
   constructor(private router: Router) { }
 
   NomeUsuario: any
+  SideBar = false
+  readonly animal = signal('');
+  readonly name = model('');
+  readonly dialog = inject(MatDialog);
 
   ngOnInit(): void {
     this.NomeUsuario = sessionStorage.getItem('Nome')
@@ -34,10 +39,10 @@ export class TopbarComponent implements OnInit {
   logout() {
     this.router.navigate(['/login'])
   }
-  
-  readonly animal = signal('');
-  readonly name = model('');
-  readonly dialog = inject(MatDialog);
+
+  handleMenu(){
+    this.SideBar = !this.SideBar
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
@@ -68,8 +73,9 @@ export class TopbarComponent implements OnInit {
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
-    MaterialModule
-  ],
+    MaterialModule,
+    SidebarComponent
+],
 })
 export class DialogOverviewExampleDialog {
   readonly dialogRef = inject(MatDialogRef<DialogOverviewExampleDialog>);
@@ -80,3 +86,4 @@ export class DialogOverviewExampleDialog {
     this.dialogRef.close();
   }
 }
+
