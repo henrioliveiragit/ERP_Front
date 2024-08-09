@@ -54,7 +54,9 @@ p{
 
 //Small Tablets
 @media only screen and (max-width: 610px) {
-    
+    .menuEsquerdo{
+        display: none;
+       }
 }
 
 //Smartphones
