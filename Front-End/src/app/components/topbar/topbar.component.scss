@@ -1,0 +1,38 @@
+mat-toolbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    align-items: center;
+    mat-icon{
+        color: #3a3a3a;
+    }
+}
+mat-form-field{
+    width: 40%;
+}
+p{
+    color:#3a3a3a;
+    font-size: 1.2vw !important;
+}
+
+.menuEsquerdo{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.menuDireito{
+    .botaoIcone{
+        background-color: #183884;
+        mat-icon{
+            color: white;
+        }
+    }
+    .botaoIcone:hover{
+        background-color: #214eb6;
+    }
+    p{
+        margin-right: 1vw;
+    }
+}

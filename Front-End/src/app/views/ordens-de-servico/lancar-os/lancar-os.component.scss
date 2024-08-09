@@ -1,0 +1,25 @@
+main{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+   
+}
+
+.conteudo{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10%;
+    justify-content: center;
+    mat-form-field{
+        width: 30vw;
+    }
+}
+form{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 3vw;
+    justify-content: center;
+}
+

@@ -1,0 +1,50 @@
+<main>
+
+    <mat-card appearance="outlined">
+
+        <mat-card-header>
+
+            <div class="logout">
+                <button mat-mini-fab matTooltip="Logout" (click)="voltar()">
+                    <mat-icon>logout</mat-icon>
+                </button>
+            </div>
+
+        </mat-card-header>
+        <div class="perfil">
+            <p>{{NomeUsuario}}</p>
+        </div>
+
+
+        <mat-card-content>
+
+            <form class="example-form">
+
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Digite o Código Filial" [mask]="'0000'">
+                    <mat-icon matSuffix>business</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-select placeholder="Selecione o Módulo">
+                        @for (modulo of modulos; track modulo) {
+                        <mat-option [value]="modulo.nome">{{modulo.nome}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+
+            </form>
+
+
+            <br>
+
+        </mat-card-content>
+
+        <mat-card-actions>
+
+            <button mat-flat-button (click)="prosseguir()">Salvar e Prosseguir</button>
+
+        </mat-card-actions>
+
+    </mat-card>
+
+</main>

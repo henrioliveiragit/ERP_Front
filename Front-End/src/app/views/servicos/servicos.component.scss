@@ -1,0 +1,51 @@
+:root {
+    --ita-light-blue: #4A80FF;
+    --ita-blue: #183884;
+    --ita-text-gray: #3a3a3a;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+   
+}
+
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding-left: 5%;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+.titulo{
+    font-size: 2vw;
+}
+
+mat-card{
+    width: 10vw;
+    height: 8vw;
+    background-color: #183884;
+    color: whitesmoke;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    mat-icon{
+        padding: 1vw;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+mat-card:hover{
+    scale: 1.05;
+}

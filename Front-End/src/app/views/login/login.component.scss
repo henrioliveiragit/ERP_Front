@@ -1,0 +1,105 @@
+:root {
+    --ita-light-blue: #4A80FF;
+    --ita-blue: #183884;
+    --ita-light-gray: #D1D1D1;
+}
+
+main {
+    background-image: linear-gradient(to bottom right, #4A80FF, #183884);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card {
+    background-color: whitesmoke !important;
+    height: fit-content;
+    display: flex;
+    padding: 1%;
+
+    width: 90%;
+    max-width: 400px;
+}
+
+mat-spinner {
+    ::ng-deep circle {
+        stroke: #ffffff;
+    }
+}
+
+mat-icon {
+    color: #183884;
+}
+
+mat-card-actions {
+    justify-content: center;
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-card-title {
+    font-size: 3vw;
+    color: #183884;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    margin-left: 1vw;
+    font-weight: 600;
+}
+
+button {
+    width: 100%;
+    padding: 6%;
+    background-color: #274EA9;
+    border-radius: 10px;
+}
+
+img {
+    width: 4vw;
+    height: 4vw;
+}
+
+mat-input {
+    background-color: whitesmoke !important;
+}
+
+.header {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-self: center;
+}
+
+@media only screen and (max-width: 767px) {
+    img {
+        display: none;
+    }
+
+    mat-card {
+        margin: 18%;
+    }
+
+    mat-card-title {
+        font-size: 5vw;
+    }
+
+}
+
+@media only screen and (max-width: 424px) {
+    img {
+        display: none;
+    }
+
+    mat-card {
+        margin: 30%;
+    }
+
+    mat-card-title {
+        font-size: 9vw;
+    }
+
+}

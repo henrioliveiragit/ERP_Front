@@ -1,0 +1,331 @@
+:root {
+    --ita-light-blue: #4A80FF;
+    --ita-blue: #183884;
+    --ita-text-gray: #3a3a3a;
+}
+
+mat-sidenav-container {
+    height: 100%;
+    width: 18vw;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 1px;
+
+    h3 {
+        color: #183884;
+        align-self: flex-start;
+        margin-left: 1vw;
+        font-size: 1.5vw;
+    }
+}
+
+.bk-blue-ita {
+    background-color: #183884 !important;
+    color: white;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    button {
+        width: 16vw;
+        height: 3vw;
+        border-radius: 0vw;
+        box-shadow: none;
+        margin: 1%;
+        display: flex;
+        font-size: 1.1vw;
+        background-color: transparent;
+        color: #3a3a3a;
+        border-radius: 1vw;
+        align-items: center;
+        place-items: center;
+
+        mat-icon {
+            position: absolute;
+            left: 1.2vw;
+            font-size: 1.5vw;
+        }
+    }
+
+    button.selecionado {
+        background-color: #183884;
+        color: whitesmoke;
+    }
+
+    
+
+}
+
+button:hover {
+    background-color: #ced4e4 !important;
+}
+
+.sidenav-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    mat-divider {
+        margin: 1%;
+    }
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+        width: 3vw;
+        height: 3vw;
+    }
+
+    h1 {
+        font-size: 2vw;
+        color: #183884;
+    }
+}
+
+.helper {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    color: #3a3a3a;
+    margin: -5%;
+    cursor: help;
+
+    mat-icon {
+        font-size: 1.1vw;
+    }
+
+    p {
+        font-size: 1.1vw;
+    }
+}
+
+.bar {
+    width: 4vw;
+    box-shadow: 0px 0px 1px;
+    height: 100%;
+
+    img {
+        width: 100%;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        gap: 1vw;
+        h3 {
+            font-size: 0.9vw;
+            color: #183884;
+            align-self: flex-start;
+        }
+
+        button {
+            width: 100%;
+            height: 3vw;
+            border-radius: 0vw;
+            box-shadow: none;
+            display: flex;
+            background-color: transparent;
+            color: #3a3a3a;
+            justify-content: center !important;
+            align-items: center !important;
+            place-items: center;
+
+            mat-icon {
+                font-size: 1.6vw;
+            }
+
+            
+
+        }
+
+
+        button.selecionado {
+            background-color: #183884;
+            color: whitesmoke;
+        }
+
+    }
+}
+
+.bar:hover {
+    box-shadow: 0px 0px 5px;
+}
+
+.fixarBotao {
+    background-color: rgba(255, 0, 0, 0.151) !important;
+}
+.fixarBotao:hover {
+    background-color: rgba(255, 0, 0, 0.247) !important;
+}
+
+hr {
+    width: 90%;
+}
+
+// Laptop
+@media only screen and (max-width: 1024px) {
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    
+        button {
+            width: 16vw;
+            height: 3vw;
+            border-radius: 0vw;
+            box-shadow: none;
+            margin: 1%;
+            display: flex;
+            font-size: 1.1vw;
+            background-color: transparent;
+            color: #3a3a3a;
+            border-radius: 1vw;
+            align-items:  center;
+            align-content: center;
+            mat-icon {
+                position: absolute;
+                font-size: 1.2vw;
+                margin-top: 1.2vw;
+                align-items: center;
+            }
+    
+        }
+    
+        button.selecionado {
+            background-color: #183884;
+            color: whitesmoke;
+        }
+    }
+}
+
+// Tablet
+@media only screen and (max-width: 768px) {
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    
+        button {
+            width: 18vw;
+            height: 5vw;
+            border-radius: 0vw;
+            box-shadow: none;
+            margin: 1%;
+            display: flex;
+            font-size: 1.3vw;
+            background-color: transparent;
+            color: #3a3a3a;
+            border-radius: 1vw;
+            align-items:  center;
+            align-content: center;
+            mat-icon {
+                position: absolute;
+                left: 1.3vw;
+                font-size: 1.5vw;
+                margin-top: 1.5vw;
+                align-items: center;
+            }
+    
+        }
+    
+        button.selecionado {
+            background-color: #183884;
+            color: whitesmoke;
+        }
+    }
+    .helper {
+        display: none;
+    }
+    mat-sidenav-container {
+        height: 100%;
+        width: 20vw;
+        background-color: whitesmoke;
+        box-shadow: 0px 0px 1px;
+    
+        h3 {
+            color: #183884;
+            align-self: flex-start;
+            margin-left: 1vw;
+            font-size: 1.5vw;
+        }
+    }
+}
+
+//Small Tablets
+@media only screen and (max-width: 610px) {
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    
+        button {
+            width: 22vw;
+            height: 5vw;
+            border-radius: 0vw;
+            box-shadow: none;
+            margin: 1%;
+            display: flex;
+            font-size: 1.8vw;
+            background-color: transparent;
+            color: #3a3a3a;
+            border-radius: 1vw;
+            align-items:  center;
+            align-content: center;
+            mat-icon {
+                position: absolute;
+                left: 1vw;
+                font-size: 1.8vw;
+                margin-top: 2vw;
+            }
+    
+        }
+    
+        button.selecionado {
+            background-color: #183884;
+            color: whitesmoke;
+        }
+    }
+    .helper {
+        display: none;
+    }
+    mat-sidenav-container {
+        height: 100%;
+        width: 24vw;
+        background-color: whitesmoke;
+        box-shadow: 0px 0px 1px;
+    
+        h3 {
+            color: #183884;
+            align-self: flex-start;
+            margin-left: 1vw;
+            font-size: 1.5vw;
+        }
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    mat-sidenav-container{
+        display: none;
+    }
+}

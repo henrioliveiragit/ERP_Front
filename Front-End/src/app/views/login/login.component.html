@@ -1,0 +1,45 @@
+<main>
+    @if(this.loading == false){
+
+    <mat-card appearance="outlined">
+
+        <div class="header">
+            <img src="https://itadvanced.com.br/wp-content/uploads/2023/01/IT-Logo.png" alt="">
+            <mat-card-title>ERP de Bolso</mat-card-title>
+        </div>
+        <form action="">
+            
+            <mat-card-content>
+
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Escreva aqui o seu E-mail" name="email" [(ngModel)]="loginData.email"
+                        type="email">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Escreva aqui a sua Senha" name="senha" [(ngModel)]="loginData.password" type="password" >
+                    <mat-icon matSuffix>lock</mat-icon>
+                </mat-form-field>
+
+                <a href="">Esqueceu a sua Senha?</a>
+                <br>
+
+            </mat-card-content>
+
+        </form>
+
+
+        <mat-card-actions>
+
+            <button mat-flat-button (click)="validateLogin()">Entrar</button>
+
+        </mat-card-actions>
+
+    </mat-card>
+    }
+    @else {
+
+    <mat-spinner style="align-self: center;" color="error"></mat-spinner>
+    }
+</main>
