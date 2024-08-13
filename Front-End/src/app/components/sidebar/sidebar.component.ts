@@ -1,8 +1,14 @@
+/* Sidebar version: 1.0 (Stable)
+Signature: Henrique Oliveira
+Last Changes Author: Henrique Oliveira
+Observations: None
+ */
+
 import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { MaterialModule } from '../../modules/material.module';
 import { Router } from '@angular/router';
 import { AcessosService } from '../../services/acessos.service';
-import { DOCUMENT } from '@angular/common';
+
 @Component({
   selector: 'app-sidebar',
   standalone: true,
@@ -21,15 +27,14 @@ export class SidebarComponent implements OnInit {
   selecionado = ""
   listaCaminhos: any = []
   listaCategorias: any = []
-  listaTemp: any = []
+  modoConfigurarMenu: boolean = false
   categoria = ""
   qntMenus = 0
   objAcessos: any
 
   ngOnInit(): void {
     this.validarLogged() //Validação
-    const sidebar = document.querySelector('mat-sidenav-container') as HTMLElement;
-    this.smartphone == true ? sidebar.style.display = 'block' : null
+    this.validarSmartphone()
     this.menuFixed = sessionStorage.getItem("MenuFixed")
     this.menuFixed == '0' ? this.shouldRun = false : null
     this.objAcessos = this.acessosService.getAll()
@@ -58,6 +63,11 @@ export class SidebarComponent implements OnInit {
     }
   }
 
+  validarSmartphone() {
+    const sidebar = document.querySelector('mat-sidenav-container') as HTMLElement;
+    this.smartphone == true ? sidebar.style.display = 'block' : null
+  }
+
   montarMenu() { //Varre o objeto que vem do servidor
     for (let index = 0; index < this.listaCaminhos.length; index++) {
       this.qntMenus = this.qntMenus + this.listaCaminhos[index].length;
@@ -73,7 +83,7 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  fixarBotao(){
+  fixarBotao() {
     this.menuFixed == '1' ? this.menuFixed = '0' : this.menuFixed = '1'
     sessionStorage.setItem("MenuFixed", this.menuFixed)
     this.mudarMenu()
@@ -83,7 +93,7 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(['/' + selecionadoParam])
   }
 
-  irParaAtual(){
+  irParaAtual() {
     this.router.navigate(['/' + this.selecionado])
   }
 

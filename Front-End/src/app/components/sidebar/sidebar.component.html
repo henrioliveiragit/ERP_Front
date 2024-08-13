@@ -49,50 +49,42 @@
             Fixar Menu
         </button>
         }
-        <!-- <button class="fixarBotao recolherBotao" mat-fab extended (click)="irParaAtual()">
-            <mat-icon>zoom_in_map</mat-icon>
-            Recolher Menu
-        </button> -->
-
 
     </section>
 </mat-sidenav-container>
 }
 @else {
-   
-        <div class="bar">
-            <img src="https://itadvanced.com.br/wp-content/uploads/2023/01/IT-Logo.png" alt="">
-            <section>
-                @for (categoria of listaCategorias; track $index) {
-                <h3>{{categoria}}</h3>
-                @for (obj of objAcessos; track $index) {
-                @if (obj.categoria == categoria) {
-                @if (obj.caminho == selecionado) {
-                <button class="selecionado" mat-fab extended (click)="irPara(obj.caminho)">
-                    <mat-icon>{{obj.icone}}</mat-icon>
-                </button>
-                }
-                @else {
-                <button mat-fab extended (click)="irPara(obj.caminho)">
-                    <mat-icon>{{obj.icone}}</mat-icon>
-                </button>
-                }
-                }
-                }
-                }
-            </section>
-        
-            <section>
-                <hr class="solid">
-        
-                <button class="fixarBotao" mat-fab extended (click)="fixarBotao()">
-                    <mat-icon>keyboard_double_arrow_right</mat-icon>
-                </button>
-        
-        
-        
-            </section>
-        </div>
-    
+
+<div class="bar">
+    <img src="https://itadvanced.com.br/wp-content/uploads/2023/01/IT-Logo.png" alt="">
+    <section>
+        @for (categoria of listaCategorias; track $index) {
+        @for (obj of objAcessos; track $index) {
+        @if (obj.categoria == categoria) {
+        @if (obj.caminho == selecionado) {
+        <button class="selecionado" mat-fab extended (click)="irPara(obj.caminho)" [matTooltip]=obj.nome>
+            <mat-icon>{{obj.icone}}</mat-icon>
+        </button>
+        }
+        @else {
+        <button mat-fab extended (click)="irPara(obj.caminho)" [matTooltip]=obj.nome>
+            <mat-icon>{{obj.icone}}</mat-icon>
+        </button>
+        }
+        }
+        }
+        }
+    </section>
+
+    <section>
+        <hr class="solid">
+
+        <button class="fixarBotao" mat-fab extended (click)="fixarBotao()">
+            <mat-icon>keyboard_double_arrow_right</mat-icon>
+        </button>
+
+    </section>
+</div>
+
 
 }
