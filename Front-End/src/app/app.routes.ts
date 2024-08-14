@@ -6,11 +6,15 @@ import { LancarOsComponent } from './views/ordens-de-servico/lancar-os/lancar-os
 import { AprovarOsComponent } from './views/ordens-de-servico/aprovar-os/aprovar-os.component';
 import { ListagemDeOsComponent } from './views/ordens-de-servico/listagem-de-os/listagem-de-os.component';
 import { ListagemDePessoasComponent } from './views/pessoas/listagem-de-pessoas/listagem-de-pessoas.component';
-
+import { MaterialAdvancedCalendarComponent } from './components/material-advanced-calendar/material-advanced-calendar.component';
 export const routes: Routes = [
     {
         path: '',
         redirectTo: 'login', pathMatch: 'full'
+    },
+    {
+        path: 'calendario',
+        component: MaterialAdvancedCalendarComponent
     },
     {
         path: 'login',

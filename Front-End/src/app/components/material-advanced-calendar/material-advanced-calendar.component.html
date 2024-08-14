@@ -1,7 +1,45 @@
 <main>
-    <body>
-        <div class="container">
 
+    <body>
+
+        <div id="container">
+            <div id="header">
+                <div class="mes"><mat-icon>calendar_month</mat-icon>{{mes}}, {{ano}}</div>
+                <div class="botoes">
+                    <button mat-fab extended (click)="anteriorMes()">
+                        <mat-icon>arrow_back_ios</mat-icon>
+                        Anterior
+                    </button>
+                    <button mat-fab extended (click)="proximoMes()">
+                        <mat-icon>arrow_forward_ios</mat-icon>
+                        Próximo
+                    </button>
+                </div>
+            </div>
+
+            <div id="weekdays">
+                @for (dia of weekdays; track $index) {
+                <div>
+                    {{ dia }}
+                </div>
+                }
+            </div>
+
+            <div id="calendar">
+                @for (item of listaDias; track $index) {
+                    @if(item == hoje && mes == mesComparacao && ano == anoComparacao)
+                    {
+                        <div class="day day-hoje" matBadge="Hoje" >{{item}}
+       
+                        </div>
+                    }
+                    @else {
+                        <div class="day">{{item}}</div>
+                    }
+               
+                }
+            </div>
         </div>
+
     </body>
 </main>
