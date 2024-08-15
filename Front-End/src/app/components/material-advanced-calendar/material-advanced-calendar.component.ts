@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @Component({
   selector: 'app-material-advanced-calendar',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule],
+  imports: [MatIconModule, MatButtonModule, MatBadgeModule],
   templateUrl: './material-advanced-calendar.component.html',
   styleUrl: './material-advanced-calendar.component.scss'
 })
