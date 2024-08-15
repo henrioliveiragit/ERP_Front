@@ -7,7 +7,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideNgxMask } from 'ngx-mask';
 import { FormsModule } from '@angular/forms';
 import { provideAnimations } from '@angular/platform-browser/animations';
-
 import { provideToastr } from 'ngx-toastr';
 
 

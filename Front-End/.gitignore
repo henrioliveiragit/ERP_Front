@@ -38,6 +38,7 @@ testem.log
 /typings
 ../Projeto
 ./Projeto
+Projeto
 
 # System files
 .DS_Store

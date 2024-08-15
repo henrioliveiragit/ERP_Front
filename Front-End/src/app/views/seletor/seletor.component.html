@@ -21,16 +21,34 @@
             <form class="example-form">
 
                 <mat-form-field appearance="outline">
-                    <input matInput placeholder="Digite o Código Filial" [mask]="'0000'">
+                    <input [matAutocomplete]="filial" matInput  placeholder="Digite o Código Filial" >
+                    <mat-autocomplete #filial="matAutocomplete">
+                        @for (empresa of seletorData.empresas; track $index) {
+                          <mat-option style="display: flex; width: 84%;" (click)="handleFilial(empresa)" [value]="empresa.filial" [matBadge]="empresa.filial" matBadgeColor="primary" matBadgeSize="large" matBadgePosition="above">{{empresa.nome}}</mat-option>
+                        }
+                      </mat-autocomplete>
                     <mat-icon matSuffix>business</mat-icon>
                 </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-select placeholder="Selecione o Módulo">
-                        @for (modulo of modulos; track modulo) {
-                        <mat-option [value]="modulo.nome">{{modulo.nome}}</mat-option>
-                        }
-                    </mat-select>
-                </mat-form-field>
+                
+                @if (seletorData.empresas == "") {
+                    <mat-form-field appearance="outline">
+                        <mat-select placeholder="Selecione o Módulo" disabled="true">
+                            @for (modulo of modulos; track modulo) {
+                            <mat-option [value]="modulo">{{modulo}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                }
+                @else {
+                    <mat-form-field appearance="outline">
+                        <mat-select placeholder="Selecione o Módulo" >
+                            @for (modulo of modulos; track modulo) {
+                            <mat-option [value]="modulo">{{modulo}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                }
+                
 
             </form>
 

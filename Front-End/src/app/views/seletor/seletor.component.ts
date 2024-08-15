@@ -7,30 +7,54 @@ Observations: None
 import { Component, OnInit } from '@angular/core';
 import { MaterialModule } from '../../modules/material.module';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule } from '@angular/forms';
 import { NgxMaskDirective } from 'ngx-mask';
+import { SeletorService } from '../../services/seletor.service';
 
 @Component({
   selector: 'app-seletor',
   standalone: true,
-  imports: [MaterialModule, NgxMaskDirective],
+  imports: [MaterialModule, NgxMaskDirective, FormsModule],
   templateUrl: './seletor.component.html',
   styleUrl: './seletor.component.scss'
 })
 export class SeletorComponent implements OnInit {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private seletorService: SeletorService) { }
 
   NomeUsuario: any
+  modulos: any = []
+  empresas: any = []
+  seletorData: any = {empresas: [], modulos: []}
 
   ngOnInit(): void {
     this.validarLogged()
-    this.NomeUsuario = sessionStorage.getItem("Nome")
+    this.handleSessionStorage()
+    this.seletorData = this.seletorService.retrieveData()
+    console.log(this.seletorData)
   }
 
   validarLogged() {
     if (sessionStorage.getItem("Logged") != "1") {
       this.router.navigate(["./login"])
     }
+  }
+
+  handleSessionStorage() {
+    this.NomeUsuario = sessionStorage.getItem("Nome")
+  }
+
+  handleFilial(empresa: any)
+  {
+ 
+  }
+
+  handleModulos(filial: any)
+  {
+    this.seletorData.modulos.forEach((modulo: { filial: any; }) => {
+      if (modulo.filial == filial) {
+        this.modulos.push(modulo)
+      }
+    });
   }
 
   seletorForm = new FormGroup({
@@ -44,18 +68,7 @@ export class SeletorComponent implements OnInit {
   prosseguir() {
     this.router.navigate(['/dashboard'])
   }
-  
-  modulos = [{
-    nome: "Serviços",
-    filial: "0101"
-  },
-  {
-    nome: "Financeiro",
-    filial: "0101"
-  },
-  {
-    nome: "Clientes",
-    filial: "0102"
-  },
-  ]
+
+
+
 }
