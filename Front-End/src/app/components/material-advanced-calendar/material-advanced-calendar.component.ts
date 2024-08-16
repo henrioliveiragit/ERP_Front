@@ -33,7 +33,6 @@ export class MaterialAdvancedCalendarComponent implements OnInit {
     this.load(0)
 
   }
-
   load(nav:number) {
     const date = new Date();
     date.setMonth(new Date().getMonth() + nav);
@@ -78,8 +77,6 @@ export class MaterialAdvancedCalendarComponent implements OnInit {
     this.nav -= 1
     this.load(this.nav)
   }
-
-
 }
 
 

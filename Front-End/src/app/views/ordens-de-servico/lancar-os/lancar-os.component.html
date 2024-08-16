@@ -2,54 +2,95 @@
     <app-sidebar></app-sidebar>
     <div style="width: 100%;">
         <app-topbar style="width: 100%;"></app-topbar>
+        <h1> <mat-icon>add_circle</mat-icon>Lançar OS</h1>
+        <hr class="solid">
+        <label>*Todos os campos são obrigatórios</label>
         <div class="conteudo">
-            <form>
-
+            <div class="form">
                 <mat-form-field appearance="outline">
                     <mat-label>Cliente</mat-label>
-                    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [ngModel]="osData.cliente">
                     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-                        @for (option of options; track option) {
-                        <mat-option [value]="option">{{option.name}}</mat-option>
+                        @for (cliente of clientes; track $index) {
+                        <mat-option [value]="cliente">{{cliente.name}}</mat-option>
                         }
                     </mat-autocomplete>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                    <mat-label>Analista</mat-label>
+                    <mat-label>Especialista</mat-label>
                     <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
                     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-                        @for (option of options; track option) {
+                        @for (option of clientes; track option) {
                         <mat-option [value]="option">{{option.name}}</mat-option>
                         }
                     </mat-autocomplete>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
-                    <mat-label>Favorite food</mat-label>
+                    <mat-label>Status</mat-label>
                     <mat-select>
-                        @for (food of options; track food) {
+                        @for (food of clientes; track food) {
                         <mat-option [value]="food">{{food}}</mat-option>
                         }
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                    <mat-label>Favorite food</mat-label>
+                    <mat-label>Tipo</mat-label>
                     <mat-select>
-                        @for (food of options; track food) {
-                        <mat-option [value]="food">{{food}}</mat-option>
+                        @for (tipo of tipoOS; track $index) {
+                        <mat-option [value]="tipo">{{tipo}}</mat-option>
                         }
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                    <mat-label> Choose a date</mat-label>
-                    <input matInput [matDatepicker]="picker">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-label>Data Inicial</mat-label>
+                <input matInput [matDatepicker]="picker" mask="00/00/0000">
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                  </mat-form-field>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
+                </mat-form-field>
+                <div class="timepickers">
+                    <div>
+                        <label for="">Entrada</label>
+                        <ngx-timepicker-field [controlOnly]="true" [ngModel]="osData.entrada" [format]="24"></ngx-timepicker-field>
+                    </div>
+                    <div>
+                        <label for="">Almoço</label>
+                        <ngx-timepicker-field [controlOnly]="true" [ngModel]="osData.almoco" [format]="24"></ngx-timepicker-field>
+                    </div>
+                    <div>
+                        <label for="">Translado</label>
+                        <ngx-timepicker-field [controlOnly]="true" [ngModel]="osData.translado" [format]="24"></ngx-timepicker-field>
+                    </div>
+                    <div>
+                        <label for="">Saída</label>
+                        <ngx-timepicker-field [controlOnly]="true" [ngModel]="osData.saida" [format]="24"></ngx-timepicker-field>
+                    </div>
+                    <div class="totalHoras">
+                        <label for="">Total de Horas</label>
+                        <p>00:00<mat-icon>access_time</mat-icon></p>
+                    </div>
 
-            </form>
+                </div>
+                <hr class="solid">
+                <div class="tarefas">
+                    <label>*Necessário cadastrar no mínimo 1 tarefa</label>
+                    <button mat-fab extended (click)="openDialog()">
+                        <mat-icon>add_task</mat-icon>
+                        Adicionar Tarefa
+                    </button>
+                    <mat-card appearance="outlined">
+                        <mat-card-title>Resolução de Bug</mat-card-title>
+                        <mat-card-content>Lorem Ipsum Larem Oredeum Feito a condição para validação no back-end (OXPERMTRAB) utilizando o parâmetro PAN_PTSIMU;</mat-card-content>
+                      </mat-card>
+                </div>
+                
+            </div>
+
+
         </div>
+        <button mat-fab extended class="saveButton" (click)="salvar()">
+            <mat-icon>save</mat-icon>
+        </button>
     </div>
-
+   
 </main>

@@ -1,17 +1,25 @@
-import { Component } from '@angular/core';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { Component, HostListener, inject, model, OnInit, signal } from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TopbarComponent } from '../../../components/topbar/topbar.component';
 import { SidebarComponent } from '../../../components/sidebar/sidebar.component';
 import { MaterialModule } from '../../../modules/material.module';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
-import {AsyncPipe} from '@angular/common';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {provideNativeDateAdapter} from '@angular/material/core';
-
-export interface User {
+import { AsyncPipe } from '@angular/common';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { NgxMaskDirective } from 'ngx-mask';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+export interface Cliente {
   name: string;
 }
 @Component({
@@ -19,31 +27,60 @@ export interface User {
   standalone: true,
   providers: [provideNativeDateAdapter()],
   imports: [TopbarComponent, SidebarComponent, MaterialModule, AsyncPipe,
-     MatAutocompleteModule, MatFormFieldModule, FormsModule, MatInputModule, ReactiveFormsModule],
+    MatAutocompleteModule, MatFormFieldModule, FormsModule, MatInputModule,
+    ReactiveFormsModule, NgxMaterialTimepickerModule, NgxMaskDirective],
   templateUrl: './lancar-os.component.html',
   styleUrl: './lancar-os.component.scss'
 })
 export class LancarOsComponent {
 
 
-  myControl = new FormControl<string | User>('');
-  options: User[] = [{name: 'Mary'}, {name: 'Shelley'}, {name: 'Igor'}];
-
-
-
+  myControl = new FormControl<string | Cliente>('');
+  clientes: Cliente[] = [{ name: 'Katrium' }, { name: 'ICS' }, { name: 'SLB' }];
+  tipoOS = ["Normal", "Após às 18h", "Final de Semana", "Feriado"]
+  readonly dialog = inject(MatDialog);
+  osData = { cliente: '', especialista: '', status: '', tipo: '', dataInicial: '', entrada: '', almoco: '', translado: '', saida: '' }
   ngOnInit() {
-
-   
 
   }
 
-  displayFn(user: User): string {
+  openDialog(): void {
+    const dialogRef = this.dialog.open(TarefaOsDialog)
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      }
+    );
+  }
+
+  displayFn(user: Cliente): string {
     return user && user.name ? user.name : '';
   }
 
-  private _filter(name: string): User[] {
-    const filterValue = name.toLowerCase();
+  salvar()
+  {
+    console.log(this.osData)
+  }
 
-    return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
+  
+}
+
+@Component({
+  selector: 'tarefa-os-dialog',
+  templateUrl: 'tarefa-os.component.html',
+  standalone: true,
+  imports: [
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+    MaterialModule,
+    SidebarComponent
+],
+})
+export class TarefaOsDialog {
+  readonly dialogRef = inject(MatDialogRef<TarefaOsDialog>);
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

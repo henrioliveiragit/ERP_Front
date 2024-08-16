@@ -4,22 +4,231 @@ main{
     height: 100%;
     width: 100%;
     background-color: whitesmoke;
+
    
 }
-
+h1{
+    margin-left: 1vw;
+    color: #183884;
+}
 .conteudo{
     display: flex;
     flex-flow: row wrap;
-    padding: 10%;
-    justify-content: center;
-    mat-form-field{
-        width: 30vw;
+    padding-top: 5%;
+    width: 100%;    
+}
+hr {
+    width: 100%;
+}
+button {
+    width: 20%;
+    height: 3vw;
+    border-radius: 1vw;
+    box-shadow: none;
+    background-color: #183884 ;
+    justify-content: center !important;
+    color: white;
+    margin: 1vw;
+}
+.totalHoras{
+    flex: column;
+    text-align: center;
+    align-items: center;
+    align-content: baseline;
+    label{
+        color: #3a3a3a;
+        font-size: 1vw;
+    }
+    p{
+        color: #183884;
+        font-weight: bold;
     }
 }
-form{
+.saveButton {
+    position: absolute;
+    background-color: green;
+    width: fit-content;
+    right: 0 auto;
+    bottom: 0 auto;
+    mat-icon{
+        align-self: center;
+        margin: 0px;
+    }
+}
+label{
+    color: red;
+    margin-left: 1vw;
+}
+.tarefas{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    mat-card{
+        width: 50%;
+        margin: 1vw;
+        mat-card-title{
+            padding: 1%;
+            color: #183884;
+        }
+    }
+}
+.form{
     display: flex;
     flex-flow: row wrap;
-    gap: 3vw;
+    gap: 1vw;
+    justify-content: center ;
+}
+.timepickers{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     justify-content: center;
+    gap: 1vw;
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1vw;
+        margin-top: 2vw;
+        label{
+            color: #3a3a3a;
+            font-size: 1vw;
+        }
+    }
 }
 
+
+// Laptop
+@media only screen and (max-width: 1024px) {
+    .timepickers{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        gap: 1vw;
+        div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 1vw;
+            margin-top: 2vw;
+            label{
+                color: #3a3a3a;
+                font-size: 1vw;
+            }
+        }
+    }
+    .form{
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1vw;
+        justify-content: center ;
+    }
+    .tarefas{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        mat-card{
+            width: 70%;
+            margin: 1vw;
+            mat-card-title{
+                padding: 1%;
+                color: #183884;
+            }
+        }
+    }
+    button {
+        width: 30%;
+        height: 4vw;
+        border-radius: 1vw;
+        box-shadow: none;
+        background-color: #183884 ;
+        justify-content: center !important;
+        color: white;
+        margin: 1vw;
+    }
+    
+}
+
+// Tablet
+@media only screen and (max-width: 768px) {
+    button {
+        width: 40%;
+        height: 5vw;
+        border-radius: 1vw;
+        box-shadow: none;
+        background-color: #183884 ;
+        justify-content: center !important;
+        color: white;
+        margin: 1vw;
+    }
+}
+
+//Small Tablets
+@media only screen and (max-width: 610px) {
+    .timepickers{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        gap: 1vw;
+        div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 1vw;
+            margin-top: 2vw;
+            label{
+                color: #3a3a3a;
+                font-size: 3vw;
+            }
+        }
+    }
+    .form{
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1vw;
+        justify-content: center ;
+        mat-form-field{
+            width: 90%;
+        }
+    }
+    button {
+        width: 50%;
+        height: 6vw;
+        border-radius: 1vw;
+        box-shadow: none;
+        background-color: #183884 ;
+        justify-content: center !important;
+        color: white;
+        margin: 1vw;
+    }
+    
+}
+//Smartphones
+@media only screen and (max-width: 425px) {
+    .tarefas{
+        display: flex;
+        flex-direction: column;
+        justify-content: center !important;
+        width: 100%;
+        mat-card{
+            width: 90%;
+            margin: 1vw;
+            mat-card-title{
+                padding: 1%;
+                color: #183884;
+            }
+        }
+    }
+    button {
+        width: 90%;
+        height: 8vw;
+        border-radius: 1vw;
+        box-shadow: none;
+        background-color: #183884 ;
+        justify-content: center !important;
+        color: white;
+        margin: 1vw;
+    }
+}

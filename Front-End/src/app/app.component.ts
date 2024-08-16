@@ -8,7 +8,10 @@ class AppModule { }
   standalone: true,
   imports: [RouterOutlet, MatSlideToggleModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  animations: [
+  
+      ],
 })
 export class AppComponent {
   title = 'erpdebolso';
